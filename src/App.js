@@ -29,10 +29,13 @@ export default class App extends Component {
       <>
         <Header score={this.state.score} />
         <Play increaseScore={increaseScore} />
-        {this.state.showRules ? <Rules toggleRules={toggleRules} /> : ""}
-        <button type="button" onClick={toggleRules} className="toggle-rules">
-          rules
-        </button>
+        {this.state.showRules ? (
+          <Rules toggleRules={toggleRules} />
+        ) : (
+          <button type="button" onClick={toggleRules} className="toggle-rules">
+            rules
+          </button>
+        )}
       </>
     );
   }

@@ -5,7 +5,7 @@ import logo from "../../images/logo-bonus.svg";
 const Header = ({ score }) => {
   return (
     <header>
-      <img src={logo} alt="" height="120px" />
+      <img src={logo} alt="" />
       <section className="score-container">
         <p>SCORE</p>
         <div className="score">{score}</div>

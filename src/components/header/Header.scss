@@ -1,16 +1,20 @@
 header{
     display: flex;
     width: 50%;
-    min-width: 320px;
+    min-width: 240px;
     height: fit-content;
     justify-self: center;
     align-items: center;
     margin-top: 3rem;
-    padding: 1.25rem;
-    padding-left: 2rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
     border: hsl(217, 16%, 45%) solid 3px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     justify-content: space-between;
+    img{
+        width: 10vw;
+        min-width: 80px;
+    }
     .score-container{
         display: flex;
         padding: 1rem 2rem;
@@ -25,7 +29,23 @@ header{
         }
         .score{
             font-size: 4rem;
+            font-weight: 700;
+            height: fit-content;
             color: hsl(229, 25%, 31%);
+        }
+    }
+}
+
+@media only screen and (max-width:667px){
+    header{
+        .score-container{
+            padding: 0.5rem 1.25rem;
+            p{
+                font-size: small;
+            }
+            .score{
+                font-size: 3rem;
+            }
         }
     }
 }

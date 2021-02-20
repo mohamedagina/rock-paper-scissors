@@ -7,11 +7,9 @@ const Rules = ({ toggleRules }) => {
   return (
     <div className="rules-overlay">
       <section className="rules-container">
-        <section className="rules-header">
-          rules
-          <img src={close} alt="" className="close-btn" onClick={toggleRules} />
-        </section>
-        <img src={rules} alt="" width="100%"></img>
+        <p>rules</p>
+        <img src={close} alt="" className="close-btn" onClick={toggleRules} />
+        <img src={rules} alt="" className="rules-img"></img>
       </section>
     </div>
   );
