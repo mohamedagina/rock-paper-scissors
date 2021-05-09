@@ -1,24 +1,29 @@
-import React, { Component } from "react";
-import "./App.scss";
-import Header from "./components/header";
-import Play from "./components/play";
-import Rules from "./components/rules";
+import React, { Component } from 'react';
+import './App.scss';
+import Header from './components/header';
+import Play from './components/play';
+import Rules from './components/rules';
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       showRules: false,
-      score: sessionStorage.getItem("score")
-        ? parseInt(sessionStorage.getItem("score"))
-        : 0,
+      score: sessionStorage.getItem('score')
+        ? parseInt(sessionStorage.getItem('score'))
+        : 0
     };
   }
 
   render() {
-    const increaseScore = () => {
-      this.setState({ score: this.state.score + 1 });
-      sessionStorage.setItem("score", this.state.score + 1);
+    const handleScore = lose => {
+      if (!lose) {
+        sessionStorage.setItem('score', this.state.score + 1);
+        this.setState({ score: this.state.score + 1 });
+      } else if (this.state.score > 0) {
+        sessionStorage.setItem('score', this.state.score - 1);
+        this.setState({ score: this.state.score - 1 });
+      }
     };
 
     const toggleRules = () => {
@@ -28,7 +33,7 @@ export default class App extends Component {
     return (
       <>
         <Header score={this.state.score} />
-        <Play increaseScore={increaseScore} />
+        <Play handleScore={handleScore} />
         {this.state.showRules ? (
           <Rules toggleRules={toggleRules} />
         ) : (
